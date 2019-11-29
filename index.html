@@ -1,1 +1,118 @@
-Hello World
+<head>
+    <!-- bootstrap & JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- mapbox-->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+    
+    <!-- css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- mapbox-->
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css'  />
+    <style>
+        #map 
+        {
+            width: 800px; 
+            height: 600px;
+            margin: auto;
+        }
+    
+        #menu {
+            position: absolute;
+            background: #fff;
+            padding: 10px;
+            font-family: 'Open Sans', sans-serif;
+        }
+    
+        .mapboxgl-popup {
+            max-width: 400px;
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        }
+    </style>
+    
+    </head>
+    
+    <html>
+        <body>
+                <div id='map'></div>
+                <div id='menu'>
+                        <input id='streets-v11' type='radio' name='rtoggle' value='streets' checked='checked'>
+                        <label for='streets'>streets</label>
+                        <input id='light-v10' type='radio' name='rtoggle' value='light'>
+                        <label for='light'>light</label>
+                        <input id='dark-v10' type='radio' name='rtoggle' value='dark'>
+                        <label for='dark'>dark</label>
+                        <input id='outdoors-v11' type='radio' name='rtoggle' value='outdoors'>
+                        <label for='outdoors'>outdoors</label>
+                        <input id='satellite-v9' type='radio' name='rtoggle' value='satellite'>
+                        <label for='satellite'>satellite</label>
+                    </div>
+                <script>
+                mapboxgl.accessToken = 'pk.eyJ1IjoiYWtlbm5lZHlkZXYiLCJhIjoiY2szZzJxamxvMGFnbzNtcGd3eDZ0NjlqYiJ9.Uf4eh-bGuNojutxMVZIAyA';
+                var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: [-5.9406, 54.5926],
+                zoom: 16
+                });
+    
+                map.on('load', function () {
+                    // Add a layer showing the places.
+                    map.addLayer({
+                    "id": "places",
+                    "type": "symbol",
+                    "source": {
+                    "type": "geojson",
+                    "data": 'https://andrewkennedy-civica.github.io/geoJson100.json'
+                    },
+                    "layout": {
+                    "icon-image": "{icon}-15",
+                    "icon-allow-overlap": true
+                    }
+                    });
+                    
+                    // When a click event occurs on a feature in the places layer, open a popup at the
+                    // location of the feature, with description HTML from its properties.
+                    map.on('click', 'places', function (e) {
+                    var coordinates = e.features[0].geometry.coordinates.slice();
+                    var description = e.features[0].properties.description;
+                    
+                    // Ensure that if the map is zoomed out such that multiple
+                    // copies of the feature are visible, the popup appears
+                    // over the copy being pointed to.
+                    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                    }
+                    
+                    new mapboxgl.Popup()
+                    .setLngLat(coordinates)
+                    .setHTML(description)
+                    .addTo(map);
+                    });
+                    
+                    // Change the cursor to a pointer when the mouse is over the places layer.
+                    map.on('mouseenter', 'places', function () {
+                    map.getCanvas().style.cursor = 'pointer';
+                    });
+                    
+                    // Change it back to a pointer when it leaves.
+                    map.on('mouseleave', 'places', function () {
+                    map.getCanvas().style.cursor = '';
+                    });
+                });
+    
+                var layerList = document.getElementById('menu');
+                var inputs = layerList.getElementsByTagName('input');
+                
+                function switchLayer(layer) {
+                var layerId = layer.target.id;
+                map.setStyle('mapbox://styles/mapbox/' + layerId);
+                }
+                
+                for (var i = 0; i < inputs.length; i++) {
+                inputs[i].onclick = switchLayer;
+                }
+                </script>
+        </body>
+    </html>
