@@ -392,44 +392,6 @@
     {
       "type": "Feature",
       "properties": {
-        "base_height": "",
-        "height": "",
-        "level": 1,
-        "name": "west_hall",
-        "color": "blue"
-      },
-      "geometry": {
-        "coordinates": [
-          [
-            [
-              -5.940705,
-              54.591368
-            ],
-            [
-              -5.940743,
-              54.591316
-            ],
-            [
-              -5.940685,
-              54.591302
-            ],
-            [
-              -5.940647,
-              54.591355
-            ],
-            [
-              -5.940705,
-              54.591368
-            ]
-          ]
-        ],
-        "type": "Polygon"
-      },
-      "id": "79e7808515321e0228c6ed2122f233a7"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "base_height": 0,
         "color": "#8ccfb7",
         "height": 5,

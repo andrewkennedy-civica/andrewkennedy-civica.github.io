@@ -58,17 +58,21 @@
         map.on('load', function () {
             // Add a layer showing the places.
             map.addLayer({
-            "id": "places",
-            "type": "symbol",
-            "source": {
-            "type": "geojson",
-            "data": 'https://andrewkennedy-civica.github.io/geoJson100.json'
-            },
-            "layout": {
-            "icon-image": "{icon}-15",
-            "icon-allow-overlap": true
-            }
-            });
+                    "id": "places",
+                    "type": "circle",
+                    "source": {
+                    "type": "geojson",
+                    "data": 'https://andrewkennedy-civica.github.io/geoJson100.json'
+                    },
+                    "paint": {
+                        // make circles larger as the user zooms from z12 to z22
+                        "circle-radius": {
+                            "base": 3.75,
+                            "stops": [[12, 2], [22, 180]]
+                            },
+                            'circle-color': "blue"
+                        }
+                    });
             
             // When a click event occurs on a feature in the places layer, open a popup at the
             // location of the feature, with description HTML from its properties.
