@@ -60,27 +60,32 @@
          
         map.addLayer({
         'id': '3d-buildings',
-        'source': 'composite',
-        'source-layer': 'building',
-        'filter': ['==', 'extrude', 'true'],
+        //'source': 'composite',
+        //'source-layer': 'building',
+        //'filter': ['==', 'extrude', 'true'],
         'type': 'fill-extrusion',
-        'minzoom': 15,
+        //'minzoom': 15,
+        'source': {
+        // GeoJSON Data source used in vector tiles, documented at
+        // https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d
+        'type': 'geojson',
+        'data': 'https://andrewkennedy-civica.github.io/features.geojson'
+        },
         'paint': {
-        'fill-extrusion-color': '#aaa',
-         
-        // use an 'interpolate' expression to add a smooth transition effect to the
-        // buildings as the user zooms in
-        'fill-extrusion-height': [
-        "interpolate", ["linear"], ["zoom"],
-        15, 0,
-        15.05, ["get", "height"]
-        ],
-        'fill-extrusion-base': [
-        "interpolate", ["linear"], ["zoom"],
-        15, 0,
-        15.05, ["get", "min_height"]
-        ],
-        'fill-extrusion-opacity': .6
+        // See the Mapbox Style Specification for details on data expressions.
+        // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions
+        
+        // Get the fill-extrusion-color from the source 'color' property.
+        'fill-extrusion-color': ['get', 'color'],
+        
+        // Get fill-extrusion-height from the source 'height' property.
+        'fill-extrusion-height': ['get', 'height'],
+        
+        // Get fill-extrusion-base from the source 'base_height' property.
+        'fill-extrusion-base': ['get', 'base_height'],
+        
+        // Make extrusions slightly opaque for see through indoor walls.
+        'fill-extrusion-opacity': 0.5
         }
         }, labelLayerId);
         });
