@@ -4,8 +4,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "ada_wall_02",
         "opacity": 1
@@ -43,8 +43,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "kitchen_wall_01",
         "opacity": 0.2
@@ -82,8 +82,8 @@
       "type": "Feature",
       "properties": {
         "base_height": "",
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "bobbin_wall_01",
         "opacity": 1
@@ -121,8 +121,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "hall_wall_01",
         "opacity": 1
@@ -160,8 +160,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "eddie_office_wall_02",
         "opacity": 1
@@ -199,8 +199,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "ds_wall_01",
         "opacity": 1
@@ -239,8 +239,8 @@
       "properties": {
         "opacity": 0.2,
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "kitchen_wall_02"
       },
@@ -277,8 +277,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "bobbin_wall_02",
         "opacity": 1
@@ -316,8 +316,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "hall_wall_03",
         "opacity": 1
@@ -356,9 +356,9 @@
       "properties": {
         "name": "mill_wall",
         "base_height": "",
-        "height": 8,
+        "height": 5,
         "level": 1,
-        "color": "#f1614e"
+        "color": "#8ccfb7"
       },
       "geometry": {
         "coordinates": [
@@ -431,8 +431,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "toilets_01",
         "opacity": 1
@@ -470,8 +470,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "eddie_office_wall_01",
         "opacity": 1
@@ -509,8 +509,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "north_entrance_wall_02",
         "opacity": 1
@@ -548,8 +548,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "hall_wall_02",
         "opacity": 1
@@ -587,8 +587,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "spool_thread_wall_02",
         "opacity": 1
@@ -626,10 +626,10 @@
       "type": "Feature",
       "properties": {
         "base_height": "",
-        "height": 8,
+        "height": 5,
         "level": 1,
         "name": "west_inner_wall",
-        "color": "#f1614e"
+        "color": "#8ccfb7"
       },
       "geometry": {
         "coordinates": [
@@ -664,8 +664,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "spool_thread_wall_01",
         "opacity": 1
@@ -703,8 +703,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "ds_wall_02",
         "opacity": 1
@@ -742,8 +742,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "ada_wall_01",
         "opacity": 1
@@ -781,8 +781,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "kitchen_wall_03",
         "opacity": 1
@@ -820,10 +820,10 @@
       "type": "Feature",
       "properties": {
         "name": "outer_walls",
-        "height": 8,
+        "height": 5,
         "base_height": "",
         "level": 1,
-        "color": "#8ccfb7"
+        "color": "#3b8896"
       },
       "geometry": {
         "coordinates": [
@@ -942,8 +942,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "fire_escape",
         "opacity": 1
@@ -982,9 +982,9 @@
       "properties": {
         "name": "mark_wall",
         "base_height": "",
-        "height": 8,
+        "height": 5,
         "level": 1,
-        "color": "#f1614e"
+        "color": "#8ccfb7"
       },
       "geometry": {
         "coordinates": [
@@ -1019,8 +1019,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "ds_partition_wall",
         "opacity": 1
@@ -1058,8 +1058,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "kitchen_wall_04",
         "opacity": 1
@@ -1097,8 +1097,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "is_wall",
         "opacity": 1
@@ -1136,8 +1136,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "bobbin_wall_03",
         "opacity": 1
@@ -1175,8 +1175,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "north_entrance_wall_01",
         "opacity": 1
@@ -1214,8 +1214,8 @@
       "type": "Feature",
       "properties": {
         "base_height": 0,
-        "color": "#f1614e",
-        "height": 8,
+        "color": "#8ccfb7",
+        "height": 5,
         "level": 1,
         "name": "kitchen_wall_01",
         "opacity": 1
