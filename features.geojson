@@ -1,0 +1,173 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "unit10_north_entrance",
+        "height": 12,
+        "base_height": 0,
+        "color": "grey",
+        "level": 1
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -5.940978,
+              54.591742
+            ],
+            [
+              -5.940846,
+              54.591711
+            ],
+            [
+              -5.940841,
+              54.591718
+            ],
+            [
+              -5.940974,
+              54.591749
+            ],
+            [
+              -5.940978,
+              54.591742
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "id": "1fe350652382c704d13348df0fa2afa4"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "unit10_outer_walls",
+        "height": 12,
+        "base_height": 0,
+        "level": 1,
+        "color": "grey"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -5.941214,
+              54.591643
+            ],
+            [
+              -5.94054,
+              54.591482
+            ],
+            [
+              -5.940262,
+              54.591874
+            ],
+            [
+              -5.940516,
+              54.591933
+            ],
+            [
+              -5.940699,
+              54.591676
+            ],
+            [
+              -5.941118,
+              54.591776
+            ],
+            [
+              -5.941214,
+              54.591643
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "id": "62050ec50f5e05476695ba5ee3e01b46"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "unit10_west_entrance",
+        "base_height": 0,
+        "color": "grey",
+        "height": 12,
+        "level": 1
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -5.940578,
+              54.591845
+            ],
+            [
+              -5.940631,
+              54.59177
+            ],
+            [
+              -5.940644,
+              54.591773
+            ],
+            [
+              -5.94059,
+              54.591848
+            ],
+            [
+              -5.940578,
+              54.591845
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "id": "aa2b525f18ec3633933bbaa4d61521d4"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "unit10_inner_walls",
+        "height": 0,
+        "base_height": 0,
+        "level": 1,
+        "color": "blue"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -5.941116,
+              54.591774
+            ],
+            [
+              -5.940697,
+              54.591674
+            ],
+            [
+              -5.940514,
+              54.591931
+            ],
+            [
+              -5.940264,
+              54.591873
+            ],
+            [
+              -5.940541,
+              54.591483
+            ],
+            [
+              -5.941211,
+              54.591643
+            ],
+            [
+              -5.941116,
+              54.591774
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "id": "e9983d0a03b241e634239745b68fdb58"
+    }
+  ],
+  "type": "FeatureCollection"
+}
