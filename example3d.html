@@ -32,87 +32,114 @@
 </head>
 <body>
         <div id='map'></div>
-        <div id='menu'>
-            <input id='streets-v11' type='radio' name='rtoggle' value='streets' checked='checked'>
-            <label for='streets'>streets</label>
-            <input id='light-v10' type='radio' name='rtoggle' value='light'>
-            <label for='light'>light</label>
-            <input id='dark-v10' type='radio' name='rtoggle' value='dark'>
-            <label for='dark'>dark</label>
-            <input id='outdoors-v11' type='radio' name='rtoggle' value='outdoors'>
-            <label for='outdoors'>outdoors</label>
-            <input id='satellite-v9' type='radio' name='rtoggle' value='satellite'>
-            <label for='satellite'>satellite</label>
-        </div>
-
         <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoiYWtlbm5lZHlkZXYiLCJhIjoiY2szZzJxamxvMGFnbzNtcGd3eDZ0NjlqYiJ9.Uf4eh-bGuNojutxMVZIAyA';
-        var map = new mapboxgl.Map({
-        style: 'mapbox://styles/mapbox/light-v10',
-        center: [-5.9406, 54.5926],
-        zoom: 15.5,
-        pitch: 45,
-        bearing: -17.6,
-        container: 'map',
-        antialias: true
+            mapboxgl.accessToken = 'pk.eyJ1IjoiYWtlbm5lZHlkZXYiLCJhIjoiY2szZzJxamxvMGFnbzNtcGd3eDZ0NjlqYiJ9.Uf4eh-bGuNojutxMVZIAyA';
+            var map = new mapboxgl.Map({
+                style: 'mapbox://styles/mapbox/light-v10',
+                center: [-5.9406, 54.5926],
+                zoom: 15.5,
+                pitch: 45,
+                bearing: -17.6,
+                container: 'map',
+                antialias: true
         });
          
         map.on('load', function() {
+            map.addSource("people", {
+                type: "geojson",
+                data: 'https://andrewkennedy-civica.github.io/geojson80.geojson',
+                cluster: true,
+                clusterMaxZoom: 8, // Max zoom to cluster points on
+                clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
+                });
+
             map.addLayer({
-                    "id": "places",
+                    "id": "people_clusters",
                     "type": "circle",
-                    "source": {
-                    "type": "geojson",
-                    "data": 'https://andrewkennedy-civica.github.io/geojson80.geojson'
-                    },
+                    "source": "people",
                     "paint": {
-                        // make circles larger as the user zooms from z12 to z22
-                        "circle-radius": {
-                            "base": 3.75,
-                            "stops": [[12, 2], [22, 180]]
-                            },
-                            'circle-color': "blue"
+                        "circle-color": [
+                            "step",
+                            ["get", "people"],
+                            "#51bbd6",
+                            3,
+                            "#f1f075",
+                            5,
+                            "#f28cb1"
+                        ],
+                        "circle-radius": [
+                            "step",
+                            ["get", "people"],
+                            1,
+                            100,
+                            2,
+                            200,
+                            3,
+                            300,
+                            4,
+                            600,
+                            5
+                        ]
                         }
                     });
-            
-            // When a click event occurs on a feature in the places layer, open a popup at the
-            // location of the feature, with description HTML from its properties.
-            map.on('click', 'places', function (e) {
-            var coordinates = e.features[0].geometry.coordinates.slice();
-            var description = e.features[0].properties.description;
+                    map.addLayer({
+                    id: "cluster-count",
+                    type: "symbol",
+                    source: "people",
+                    filter: ["has", "count"],
+                    });
+                    
+                    map.addLayer({
+                    id: "unclustered-point",
+                    type: "circle",
+                    source: "people",
+                    filter: ["!", ["has", "count"]],
+                    paint: {
+                        "circle-color": "#11b4da",
+                        "circle-radius": 4,
+                        "circle-stroke-width": 1,
+                        "circle-stroke-color": "#fff"
+                    }
+                    });
+
+                    // inspect a cluster on click
+                    map.on('click', 'people_clusters', function (e) {
+                        var features = map.queryRenderedFeatures(e.point, { layers: ['people_clusters'] });
+                        var clusterId = features[0].properties.cluster_id;
+                        map.getSource('people').getClusterExpansionZoom(clusterId, function (err, zoom) {
+                        if (err)
+                            return;
+                    
+                        map.easeTo({
+                            center: features[0].geometry.coordinates,
+                            zoom: zoom
+                            });
+                        });
+                    });
+                    
+                    map.on('mouseenter', 'people_clusters', function () {
+                        map.getCanvas().style.cursor = 'pointer';
+                    });
+                    map.on('mouseleave', 'people_clusters', function () {
+                        map.getCanvas().style.cursor = '';
+                    });
             
             // Ensure that if the map is zoomed out such that multiple
             // copies of the feature are visible, the popup appears
             // over the copy being pointed to.
             while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
             }
-            
-            new mapboxgl.Popup()
-            .setLngLat(coordinates)
-            .setHTML(description)
-            .addTo(map);
-            });
-            
-            // Change the cursor to a pointer when the mouse is over the places layer.
-            map.on('mouseenter', 'places', function () {
-            map.getCanvas().style.cursor = 'pointer';
-            });
-            
-            // Change it back to a pointer when it leaves.
-            map.on('mouseleave', 'places', function () {
-            map.getCanvas().style.cursor = '';
-            });
 
             // Insert the layer beneath any symbol layer.
             var layers = map.getStyle().layers;
             
             var labelLayerId;
             for (var i = 0; i < layers.length; i++) {
-            if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
-            labelLayerId = layers[i].id;
-            break;
-            }
+                if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+                    labelLayerId = layers[i].id;
+                    break;
+                }
             }
             
             map.addLayer({
@@ -146,9 +173,6 @@
             }
             }, labelLayerId);
         });
-
-        
-        </script>
-         
+        </script>       
         </body>
 </html>
