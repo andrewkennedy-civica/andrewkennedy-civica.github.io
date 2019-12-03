@@ -1,0 +1,74 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\andrew.kennedy\\source\\repos\\ConverterJsonCSV\\ConverterJsonCSV.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\andrew.kennedy\\source\\repos\\ConverterJsonCSV\\ConverterJsonCSV.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\andrew.kennedy\\source\\repos\\ConverterJsonCSV\\ConverterJsonCSV.csproj",
+        "projectName": "ConverterJsonCSV",
+        "projectPath": "C:\\Users\\andrew.kennedy\\source\\repos\\ConverterJsonCSV\\ConverterJsonCSV.csproj",
+        "packagesPath": "C:\\Users\\andrew.kennedy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andrew.kennedy\\source\\repos\\ConverterJsonCSV\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\andrew.kennedy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://civica-blue.pkgs.visualstudio.com/_packaging/CMF/nuget/v2": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "ChoETL.JSON": {
+              "target": "Package",
+              "version": "[1.1.0.4, )"
+            },
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[12.2.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

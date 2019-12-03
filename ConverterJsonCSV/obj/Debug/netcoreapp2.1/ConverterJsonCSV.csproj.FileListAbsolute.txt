@@ -1,0 +1,11 @@
+C:\Users\andrew.kennedy\source\repos\ConverterJsonCSV\bin\Debug\netcoreapp2.1\ConverterJsonCSV.deps.json
+C:\Users\andrew.kennedy\source\repos\ConverterJsonCSV\bin\Debug\netcoreapp2.1\ConverterJsonCSV.runtimeconfig.json
+C:\Users\andrew.kennedy\source\repos\ConverterJsonCSV\bin\Debug\netcoreapp2.1\ConverterJsonCSV.runtimeconfig.dev.json
+C:\Users\andrew.kennedy\source\repos\ConverterJsonCSV\bin\Debug\netcoreapp2.1\ConverterJsonCSV.dll
+C:\Users\andrew.kennedy\source\repos\ConverterJsonCSV\obj\Debug\netcoreapp2.1\ConverterJsonCSV.csproj.CoreCompileInputs.cache
+C:\Users\andrew.kennedy\source\repos\ConverterJsonCSV\obj\Debug\netcoreapp2.1\ConverterJsonCSV.AssemblyInfoInputs.cache
+C:\Users\andrew.kennedy\source\repos\ConverterJsonCSV\obj\Debug\netcoreapp2.1\ConverterJsonCSV.AssemblyInfo.cs
+C:\Users\andrew.kennedy\source\repos\ConverterJsonCSV\bin\Debug\netcoreapp2.1\ConverterJsonCSV.pdb
+C:\Users\andrew.kennedy\source\repos\ConverterJsonCSV\obj\Debug\netcoreapp2.1\ConverterJsonCSV.dll
+C:\Users\andrew.kennedy\source\repos\ConverterJsonCSV\obj\Debug\netcoreapp2.1\ConverterJsonCSV.pdb
+C:\Users\andrew.kennedy\source\repos\ConverterJsonCSV\obj\Debug\netcoreapp2.1\ConverterJsonCSV.csprojAssemblyReference.cache
