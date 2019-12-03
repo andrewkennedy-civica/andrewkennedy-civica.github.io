@@ -45,11 +45,52 @@
         });
          
         map.on('load', function() {
+
             map.addSource("people", {
                 type: "geojson",
                 data: 'https://andrewkennedy-civica.github.io/geojson100.json',
                 });
 
+            map.addLayer({
+                "id": "people_layer",
+                "type": "fill-extrusion",
+                "source": 'people',
+                "layout": {},
+                "paint": {
+                    "fill-extrusion-height": [
+                        "step",
+                        ["get", "count"],
+                        2,
+                        2,
+                        4,
+                        3,
+                        6,
+                        4,
+                        8,
+                        5,
+                        10,
+                        6,
+                        12,
+                        7,
+                        14,
+                        8,
+                        16,
+                        9,
+                        18,
+                        10,
+                        20
+                        ],
+                    "fill-extrusion-color": [
+                        "interpolate",
+                        ["linear"],
+                        ["get", "count"],
+                        1,
+                        "hsl(213, 83%, 90%)",
+                        10,
+                        "hsl(226, 74%, 42%)"
+                        ]
+                    }
+            });
             var layers = map.getStyle().layers;
             
             var labelLayerId;
@@ -63,11 +104,7 @@
 
             map.addLayer({
             'id': '3d-buildings',
-            //'source': 'composite',
-            //'source-layer': 'building',
-            //'filter': ['==', 'extrude', 'true'],
             'type': 'fill-extrusion',
-            //'minzoom': 15,
             'source': {
             'type': 'geojson',
             'data': 'https://andrewkennedy-civica.github.io/features.geojson'
