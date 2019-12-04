@@ -17,6 +17,11 @@
         padding: 0; 
         }
 
+    
+    #timeLbl {
+        font-size: x-large;    
+        margin: 10px;  
+    }
     #map { 
         position: absolute; 
         top: 0; 
@@ -33,11 +38,13 @@
             }
             
         .map-overlay .map-overlay-inner {
-            background-color: #fff;
+            background-color: #fbfbfb;
             box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
             border-radius: 3px;
             padding: 10px;
             margin-bottom: 10px;
+            margin: auto;
+            text-align: center;
             }
             
         .map-overlay h2 {
@@ -61,21 +68,20 @@
     <div id='map'></div>
     <div class='map-overlay top'>
         <div class='map-overlay-inner'>
-                <h2>People per hour</h2>
-                <label for='personsHour'></label>
-                <input type="range" class="custom-range" id="personsHour" min="1" max="3" step="1"> 
-                <button value="5_1">Push me</button>                      
+            <h2>People per hour</h2>
+            <label id="rangeTitleLbl" for='personsHour'></label>
+            <input type="range" class="custom-range" id="personsHour" min="1" max="4" step="1" value="1">     
+            <div id="timeLblDiv">
+                <label id="timeLbl">1pm</label>
+            </div>          
         </div>  
     </div>
     <script>
-        $('button').click(function() {
-
-            map.setPaintProperty('columns', 'fill-extrusion-height', Math.random()*25 + Math.random()*5);
-
-        })
-
         mapboxgl.accessToken = 'pk.eyJ1IjoiYWtlbm5lZHlkZXYiLCJhIjoiY2szZzJxamxvMGFnbzNtcGd3eDZ0NjlqYiJ9.Uf4eh-bGuNojutxMVZIAyA';
 
+        var columns = 11;
+        var maxHeight = 30;
+        var binWidth = maxHeight / columns;
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v11',
@@ -113,18 +119,13 @@
                 }
             }, labelLayerId);           
 
-            var columns = 4;
-            var maxHeight = 30;
-            var binWidth = maxHeight / bins;
-
-            for (var i = 0; i < bins; i++) {
+            for (var i = 1; i < columns; i++) {
                 map.addLayer({
                     'id': 'column_' + i,
                     'source': {
                         'type': 'geojson',
                         'data': 'https://andrewkennedy-civica.github.io/json/animation/animate_' + i + '.json'
                     },
-                    'filter': ['all', ['>', 'height', i * binWidth], ['<=', 'height', (i + 1) * binWidth]],
                     'type': 'fill-extrusion',
                     'minzoom': 15,
                     'paint': {
@@ -133,6 +134,29 @@
                             duration: 2000,
                             delay: 0
                         },
+                        "fill-extrusion-height": [
+                        "step",
+                        ["get", "count"],
+                        2,
+                        2,
+                        4,
+                        3,
+                        6,
+                        4,
+                        8,
+                        5,
+                        10,
+                        6,
+                        12,
+                        7,
+                        14,
+                        8,
+                        16,
+                        9,
+                        18,
+                        10,
+                        20
+                        ],
                         "fill-extrusion-color": [
                         "interpolate",
                         ["linear"],
@@ -145,7 +169,16 @@
                     }
                 });
             }
+
+            $("#personsHour").on("input", function() {
+                $("#timeLbl").text($(this).val()+"pm");
+                for (var i = 1; i < columns; i++) {
+                    map.setPaintProperty('column_' + i, 'fill-extrusion-height', Math.random()*25 + Math.random()*5);
+                }           
+            })
         });
+
+        
     </script>
 </body>
 </html>
