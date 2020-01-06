@@ -1,0 +1,30 @@
+<html>  
+  <head>
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.0.1/dist/aframe-extras.min.js"></script>
+  </head>
+  <body>
+    <a-scene physics>
+        <a-sphere position="0 0 -3" radius="0.25" color="#66A08D" dynamic-body></a-sphere>
+        <a-sphere position="-0.25 0 -2.6" radius="0.25" color="#D34F73" dynamic-body></a-sphere>
+
+        <a-sphere position="0 0 -3.2" radius="0.15" color="#FA3F00" dynamic-body></a-sphere>
+        <a-sphere position="-0.25 0 -2.8" radius="0.55" color="#bf94e4" dynamic-body></a-sphere>
+
+        <a-sphere position="0 0 -2.9" radius="0.45" color="#edcd66" dynamic-body></a-sphere>
+        <a-sphere position="-0.25 0 -2.4" radius="0.35" color="#65764b" dynamic-body></a-sphere>
+
+        <a-plane position="0 0 -4" rotation="-80 0 0" width="50" height="15" color="#7BC8A4" static-body></a-plane>
+        <a-ocean color="aqua" depth="100" width="100"></a-ocean>
+        <a-sky color="#ECECEC"></a-sky>
+
+
+      <a-entity light="color: #ccccff; intensity: 0.01; type: ambient;" visible=""></a-entity>
+      <a-entity light="color: #ffaaff; intensity: 0.06" position="5 5 5"></a-entity>
+      <a-entity light="color: white; intensity: 0.3" position="-5 5 15"></a-entity>
+      <a-entity light="color: white; type: ambient;"></a-entity>
+
+    </a-scene>
+  </body>
+</html>
